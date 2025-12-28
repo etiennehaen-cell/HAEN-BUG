@@ -1,2 +1,0 @@
-# HAEN-BUG
-APK BUG BY HAEN🌟👺
